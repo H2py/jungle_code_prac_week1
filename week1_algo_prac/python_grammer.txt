@@ -1,0 +1,135 @@
+1. Text cannot be modified. for instance : text = 'This is Text' text[0] = 3 could cause error
+
+2. If you use ''' ''' it keep your text original
+
+3. In this case print('C:/user/name') that result is C:/user ame -> If you want to fix this problme can use 'r'
+print(r'C:/user/name') r that means just read your string literallyt, rather than as escape characters
+
+4. text.capitalize()
+text = 'apple'
+text.capitalize()
+'Apple' 
+
+5. casefold means that changing all string to lowercase in another language like germany's B -> ss
+text = 'BIGBIGBIG'
+text.casefold()
+'bigbigbig'
+
+6. str.count means that Finding str and count it
+text = 'BIGBIGBIG'
+text.count('BIG')
+>>> 3
+
+
+7. startwith / endwith str.find(substring, startIndex, endIndex)
+
+8. str.format(*args, **kwargs)
+"The sum of 1+2 is {0}".format(1+2)
+'The sum of 1+2 is 3'
+
+Tip
+If you want to check whether two numbers equivelent change number to int
+
+list.pop list.index list.insert is O(N)
+list cannot be used queue or deqeue
+
+collections.deqeue
+
+Python's recursive depth default is max 1,000 if you want to change it you can use sys.setrecursionlimit
+int (a/b) ==> float
+int a//b ==> int
+
+
+Q. How can I change string like 'Pithon' to 'Python'
+A. Using the Slicing! [:]
+a = 'Pithon'
+x = a[:1]
+z = a[2:]
+y = 'y'
+
+Concept
+String format
+Inserting specific value into string
+
+"I eat %s" % "apple"
+"I eat %d %s " (number, string) (o)
+"I eat %d %s " (3, "apple") (x)
+
+Tip
+If you use String Format with number that could be more useful
+
+"%10s" % hi means that occupy 10 string and last 2 elements to replace with hi
+         hi
+there's 8 space and 2 space that represent 'hi'
+
+If you use "%-10sjains" that means your string is going to be left align
+
+If you represent float "%.4f"
+
+str.format is useful to format
+"I ate {0} and {1}".format("pizza", "apple")
+It could be changed to name
+
+"I ate {food} of {number}".format(food="pizza",number=3)
+
+Format align
+{0:<10}.format("hi")
+hi(space is 8)
+
+{0:>10}.format("hi")
+         hi
+
+{0:^10}.format("hi") // center align
+     hi
+
+{0:=^10}.format("hi)
+====hi====
+
+{0:0.4f}.format(3.141592)
+
+
+f'{"hi":<10}'
+
+f'{"hi":^10}'
+
+Automatic insert
+f"I need ${1500000:,}"
+=> "I need $1,500,000"
+
+"@".join(['helli', 'hi', 'nice'])
+=>'helli@hi@nice'
+
+Delete left blank
+str.lstrip
+str.rstrip
+str.strip(both side)
+
+Split string
+a = "Life is too short"
+a.Split()
+>>> ['Life', 'is', 'too', 'short']
+b = 'a:b:c'
+b.split(':')
+>>> ['a', 'b', 'c']
+
+isalpha , isdigit
+
+%s	문자열(String)
+%c	문자 1개(character)
+%d	정수(Integer)
+%f	부동소수(floating-point)
+%o	8진수
+%x	16진수
+%%	Literal % (문자 % 자체)
+
+Q. "It was %d% correct" % 30 doesn't print "It was 30% correct" how can I fix this?
+A. If you want to format string with % then you have to use %% answer is below:
+"It was %d%% correct" % 30 => "It was 30% correct" 
+
+
+All of method couldn't change original value, just return changed value and not modifying original value
+
+escape code is character combination which is used for programming
+
+a//b = 몫
+a%b = 나머지
