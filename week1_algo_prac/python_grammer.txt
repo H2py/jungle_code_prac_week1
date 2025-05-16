@@ -133,3 +133,6 @@ escape code is character combination which is used for programming
 
 a//b = 몫
 a%b = 나머지
+
+array = [0] * 9
+array2 =

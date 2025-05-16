@@ -2,25 +2,25 @@ import sys
 import math
 
 def is_prime(n):
-    for j in range(2, math.sqrt(n) + 1):
-        if n % j == 0:
+    for i in (2, int(math.sqrt(n))+1):
+        if n % i == 0 :
             return False
     return True
 
-test = int(sys.stdin.readline())
+t = int(sys.stdin.readline())
 
-array = []
-for i in range(0, test):
+numArrayList = []
+for _ in range(t):
     i = int(sys.stdin.readline())
-    array.append(i)
-
-array.sort()
-
-for i in range(array):
-    a,b = array//2, array//2
-    if is_prime(a) and is_prime(b):
-        print("{0} {1}".format(a, b))
-    else:
-        a -=1
-        b +=1
-         
+    numArrayList.append(i)
+    
+for num in numArrayList:
+    a, b = num//2, num//2
+    while(b < num):
+        if is_prime(a) and is_prime(b):
+            print('{0} {1}'.format(a, b))
+            break
+        else:
+            a -=1
+            b +=1
+        
