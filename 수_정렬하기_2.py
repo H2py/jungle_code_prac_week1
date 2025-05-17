@@ -1,31 +1,12 @@
-from typing import MutableSequence
-test = int(input())
+import sys
 
-def qsort(a : MutableSequence, left : int, right: int) -> None:
-    pl = left
-    pr = right
-    x = a[(left + right) //2]
-    
-    while pl <= pr:
-        while a[pl] < x: pl+=1
-        while a[pr] > x : pr-=1
-        if pl <= pr:
-            a[pl], a[pr] = a[pr], a[pl]
-            pl += 1
-            pr -= 1
-    if left < pr : qsort(a, left, pr)
-    if pl < right : qsort(a, pl, right)
-
-def quick_sort(a: MutableSequence) -> None:
-    qsort(a, 0, len(a) - 1)
-
+t = int(input())
 input_list = []
-for _ in range(test):
-    input_value = int(input())
-    input_list.append(input_value)
+
+for _ in range(t):
+    input_list.append(int(sys.stdin.readline()))
     
-quick_sort(input_list)
+input_list.sort()
 
-for val in input_list:
-    print(val)
-
+for num in input_list:
+    print(num)
