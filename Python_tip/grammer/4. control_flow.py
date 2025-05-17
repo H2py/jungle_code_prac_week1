@@ -86,3 +86,11 @@ f()
 
 # Q. What's the value will return when f() is executed?
 # A. The answer is that i = 6 is not defined earlier then def f so, def f can't use the i = 6
+
+# How to use pass?
+
+pocket = ['paper', 'money', 'cellphone']
+if 'money' in pocket:
+    pass
+else :
+    print('카드를 꺼내라')
