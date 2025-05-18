@@ -1,11 +1,11 @@
 import sys
-input = int(sys.stdin.readline())
 
-input_array = [0] * 10001
-while(input > 0):
-    input_array[int(sys.stdin.readline())] += 1
-    input -= 1
+inp = int(sys.stdin.readline())
 
-for i, n in enumerate(input_array):
-    for _ in range(n):
+input_list = [0] * 10001
+for _ in range(inp):
+    input_list[int(sys.stdin.readline())] += 1
+    
+for i, num in enumerate(input_list):
+    for _ in range(num):
         print(i)
