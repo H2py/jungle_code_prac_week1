@@ -1,9 +1,10 @@
 import sys
-# sys.stdin = open('input.txt', 'r')
-input_list = list(map(int, sys.stdin.readlines()))
+from itertools import combinations
 
-for  in input_list:
-    
+n = list(map(int, sys.stdin.readlines()))
 
-input_list.sort()
-print('\n'.join(map(str, input_list)))
+for i in combinations(n, 7):
+    if sum(i) == 100:
+        for j in sorted(i):
+            print(j)
+        break
