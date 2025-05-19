@@ -1,9 +1,20 @@
-# 2^N * 2^N r행 c열
-# break point 설정하기
+import sys
+# sys.stdin = open('input.txt', 'r')
 
 num, row, col = map(int, input().split())
+total = 0
+lo = (2**num)
 def find_z(n,r,c):
-    total = 2**n + 2**n
-    
-    if r == n and 
-    
+    global total, lo
+    total += 1
+    if(n == 1): 
+        print(total)
+        return
+    else :
+        n-=1
+        lo /= 2
+        find_z(n,r,c)
+        find_z(n,r,c+lo)
+        find_z(n,r+lo,c)
+        find_z(n,r+lo,c+lo)
+find_z(num, row, col)
