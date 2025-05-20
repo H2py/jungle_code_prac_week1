@@ -26,3 +26,18 @@ print_kwargs(name='foo', age=3)
 
 # list.pop ==> print(las_items) and pop
 # list.index(x, start, end)
+
+def foo(**kwargs):
+    print(kwargs)
+    
+foo(a=1, b=2, c=3)
+#{'a':1, 'b':2 ,'c': 3}
+
+
+#lambda function
+
+def mul5(x):
+    return 5*x
+
+a = lambda x : 5 * x
+a = lambda x : 120 // x
