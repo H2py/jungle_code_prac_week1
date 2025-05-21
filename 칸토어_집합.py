@@ -1,14 +1,16 @@
 import sys
-sys.stdin = open('input.txt', 'r')
+# sys.stdin = open('input.txt', 'r')
 
-def contoar(n):
+def cantor(n):
     if n == 0:
-        print('-')
-        return
+        return '-'
     
+    left = cantor(n-1)
+    space = ' ' * (3 ** (n-1))
+    right = cantor(n-1)
 
+    return left + space + right
 inputs = list(map(int, sys.stdin.readlines()))
 
-
-
-print(inputs)
+for num in inputs:
+    print(cantor(num))
