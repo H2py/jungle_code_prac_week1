@@ -1,21 +1,16 @@
 import sys
 # sys.stdin = open('input.txt', 'r')
 
-cantor_list = []
 def cantor(n):
     if n == 0:
-        cantor_list.append('-')
-        return
+        return '-'
     
-    cantor(n-1)
-    for _ in range((3**n) // 3):
-        cantor_list.append(' ')
-    cantor(n-1)
+    left = cantor(n-1)
+    space = ' ' * (3 ** (n-1))
+    right = cantor(n-1)
 
+    return left + space + right
 inputs = list(map(int, sys.stdin.readlines()))
 
-
 for num in inputs:
-    cantor(num)
-    print(''.join(cantor_list))
-    cantor_list.clear()
+    print(cantor(num))
