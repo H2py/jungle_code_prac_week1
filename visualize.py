@@ -2,6 +2,7 @@ import functools
 import inspect
 import graphviz
 
+# FunctionVisualizer 클래스 정의 (제공된 코드 그대로)
 class FunctionVisualizer:
     def __init__(self):
         self.dot = graphviz.Digraph()
@@ -58,3 +59,48 @@ class FunctionVisualizer:
     def render(self, filename="function_calls", format="png"):
         self.dot.render(filename, format=format, cleanup=True)
         return filename + "." + format
+
+# FunctionVisualizer 인스턴스 생성
+visualizer = FunctionVisualizer()
+
+# merge_sort 함수에 데코레이터 적용
+@visualizer.visualize(param_names=["arr"], show_execution_order=True)
+def merge_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    
+    mid = len(arr) // 2
+    leftHalf = arr[:mid]
+    rightHalf = arr[mid:] 
+    
+    sortedLeft = merge_sort(leftHalf)
+    sortedRight = merge_sort(rightHalf)
+    
+    return merge(sortedLeft, sortedRight)
+
+# merge 함수에 데코레이터 적용
+@visualizer.visualize(param_names=["left", "right"], show_execution_order=True)
+def merge(left, right):
+    result = []
+    i = j = 0
+    
+    while i < len(left) and j < len(right):
+        if left[i] < right[j]:
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+            
+    result.extend(left[i:])
+    result.extend(right[j:])
+    
+    return result
+
+# 메인 실행
+unsortedArr = [3, 7, 6, -10, 15, 23.5, 55, -13]
+sortedArr = merge_sort(unsortedArr)
+print("Sorted Array:", sortedArr)
+
+# 그래프를 PNG 파일로 렌더링
+visualizer.render(filename="merge_sort_visualization")

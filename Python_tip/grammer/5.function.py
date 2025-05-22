@@ -41,3 +41,14 @@ def mul5(x):
 
 a = lambda x : 5 * x
 a = lambda x : 120 // x
+
+
+
+def recur(n:int) -> int:
+    if n > 0:
+        recur(n-1)
+        print(n)
+        recur(n-2)
+        
+x = 4
+recur(4)
