@@ -1,15 +1,21 @@
-import sys
-from bisect import bisect_left
 n = int(input())
-arr = list(map(int, sys.stdin.readline().split()))
+arr = list(map(int, input().split()))
 
-result = [arr[0], ]
+result = [0]
 
 for el in arr:
     if el > result[-1]:
         result.append(el)
     else:
-        idx = bisect_left(result, el)
-        result[idx] = el
+        start = 0
+        end = len(result) - 1
+        while start < end:
+            mid = (start + end) //2
+            if result[mid] < el:
+                start = mid + 1
+            else:
+                end = mid
+        result[end] = el
 
-print(len(result))
+print(len(result) - 1)
+        
