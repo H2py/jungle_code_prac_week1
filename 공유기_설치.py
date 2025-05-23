@@ -1,22 +1,26 @@
 import sys
+# sys.stdin = open('input.txt', 'r')
+            
+h, wifi = map(int, input().split())
+houses = list(map(int, sys.stdin.readlines()))
+houses.sort()
 
-def binary(arr, left, right):
-    global cnt
-    while left <= right or cnt == c:
-        mid = (left + right) // 2
-        c_list.append(mid)
-        cnt += 1
-        
-        binary(arr, left, mid - 1)
-        binary(arr, mid + 1, right)
-        
-    return None
+start, end = 1, houses[-1] - houses[0]
+result = 0
+while start <= end:
+    mid = (start + end) // 2        
+    res = []
+    res.append(houses[0])
+    
+    for house in houses:
+        if house - res[-1] >= mid:
+            res.append(house)
+    
+    if len(res) >= wifi:
+        result = mid
+        start = mid+1
 
-n, c = map(int, input().split())
-x_list = list(map(int, sys.stdin.readlines()))
-x_list.sort()
-c_list = []
-cnt = 0
+    else:
+        end = mid-1
 
-binary(x_list, 0, len(x_list) - 1)
-print(max([c_list[i] - c_list[i-1] for i in range(1, c)]))
+print(result)
