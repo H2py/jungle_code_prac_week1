@@ -17,3 +17,11 @@ if target == 0:
     cnt -= 1
     
 print(cnt)
+
+
+from functools import cmp_to_key
+
+
+
+def solution(numbers):
+    

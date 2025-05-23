@@ -1,6 +1,3 @@
-import sys
-sys.stdin = open('input.txt', 'r')
-
 w, h = map(int, input().split())
 test = int(input())
 width = [0, w]
