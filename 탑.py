@@ -1,4 +1,5 @@
 import sys
+sys.stdin = open('input.txt', 'r')
 N = int(input())
 heights = list(map(int, sys.stdin.readline().split()))
 
