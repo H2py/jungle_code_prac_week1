@@ -39,3 +39,4 @@ class HashTable:
         else:
             return None
                 
+# https://gbdai.tistory.com/16
