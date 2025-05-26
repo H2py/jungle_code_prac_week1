@@ -1,5 +1,4 @@
 import sys
-# sys.stdin = open('input.txt', 'r')
 
 paren = sys.stdin.readline().strip()
 stack = []
