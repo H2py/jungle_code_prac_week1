@@ -1,23 +1,21 @@
 import sys
-sys.stdin = open('input.txt', 'r')
+input = sys.stdin.readline
 n = int(input())
-arr = list(map(int, sys.stdin.readline().split()))
+ls = list(map(int, input().split()))
 
-result = [0]
-
-for el in arr:
-    if el > result[-1]:
-        result.append(el)
+answer = [0]
+for el in ls:
+    if el > answer[-1]:
+        answer.append(el)
     else:
-        left = 0
-        right = len(result)
-        
-        while left < right:
-            mid = (left + right) // 2
-            if result[mid] < el:
-                left = mid + 1
-            else :
-                right = mid
-        result[right] = el
+        start, end = 0, len(answer) - 1
+        while start < end:
+            mid = (start + end) // 2
+            
+            if answer[mid] < el:
+                start = mid + 1
+            else:
+                end = mid
+        answer[start] = el
 
-print(len(result))
+print(len(answer) - 1)
