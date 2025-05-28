@@ -3,30 +3,22 @@ import heapq
 
 input = sys.stdin.readline
 n = int(input())
-input_list = []
-
-for _ in range(n):
-    h, o = map(int, input().split())
-    if h > o:
-        heapq.heappush(input_list, [o, h])
-    else :
-        heapq.heappush(input_list, [h, o]) 
-        
-input_list.sort(key=lambda x: x[1])  
-
 d = int(input())
-hp = []
-answer = 0
 
-for start, end in input_list:
+homes = [sorted(map(int, input().split())) for _ in range(n)]
+homes.sort(key=lambda x: x[1])
+
+heap = []
+result = 0
+for start, end in homes:
     if end - start > d:
         continue
     
-    heapq.heappush(hp, start)
+    heapq.heappush(heap, start)
     
-    while hp and hp[0] < end - d:
-        heapq.heappop(hp)
+    while heap and heap[0] < end - d:
+        heapq.heappop(heap)
     
-    answer = max(answer, len(hp))
+    result = max(result, len(heap))
 
-print(answer)
+print(result)
