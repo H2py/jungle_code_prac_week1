@@ -19,27 +19,15 @@ visited = [False] * 6
 
 
 
-def dfs(graph, start, visited):
-    visited[start] = True
-    print(start, end=' ')
+def dfs_iterative(v):
+    stack = [v]
+    visited = [0] * (N+1)
     
-    for neighbor in graph[start]:
-        if not visited[neighbor]:
-            dfs(graph, neighbor, visited)
-            
-            
-from collections import deque
-
-def bfs(graph, start, visited):
-    queue = deque([start])
-    visited[start] = True
-    
-    
-    while queue:
-        v = queue.popleft()
-        print(v, end=' ')
-        
-        for neighbor in graph[v]:
-            if not visited[neighbor]:
-                queue.append(neighbor)
-                visited[neighbor] = True
+    while stack:
+        node = stack.pop()
+        if not visited[node]:
+            visited[node] = 1
+            print(node, end=' ')
+            for i in range(N, 0, -1):
+                if graph[node][i] == 1 and not visited[i]:
+                    stack.append(i)
